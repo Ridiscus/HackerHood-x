@@ -1,9 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat+Alternates&family=Nunito:wght@200;300;400;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=PT+Sans+Narrow:wght@400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     font-family: Georgia, 'Times New Roman', Times, serif;
     box-sizing: border-box;
+    transition: all .2s linear;
+    outline: none;
+    border: none;
 }
+
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+}
+
 
 header {
     position: fixed;
@@ -76,6 +88,57 @@ header.sticky .nav-link {
     color: #000 !important;
 }
 
+
+
+
+
+
+
+
+/* LOGIN BUTTON */
+.button {
+    position: fixed;
+    bottom: 40px;
+    margin-left: 45%;
+    display: none;
+    z-index: 1000;
+    background: #e1decd;
+    width: 14rem;
+    padding: 1rem;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #fe9102;
+    transition: all 0.3s ease-in 0s;
+}
+
+.button a {
+    text-decoration: none;
+    list-style: none;
+    font-size: 20px;
+    color: #000;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.button a:hover {
+    color: #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* SWIPER SLIDE PART */
 .banner-slider .slide .content {
     position: absolute;
     margin-top: 15rem;
@@ -91,7 +154,13 @@ header.sticky .nav-link {
 
 .banner-slider .slide .content h1 {
    font-size: 3em;
+   font-family: 'Nunito', sans-serif;
 }
+
+.banner-slider .slide .content p {
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+ 
 
 .banner-slider .slide button {
     margin-top: 45rem;
@@ -110,8 +179,16 @@ header.sticky .nav-link {
  
 
 
-/* OFFRES */
 
+
+
+
+
+
+
+
+
+/* OFFRES */
 .nav-link.active,
 .nav-link:hover {
     border-bottom: 2px solid hsl(20, 94%, 48%);
@@ -140,24 +217,23 @@ ul {
     list-style: none;
 }
 
-section .heading h2 {
+#offres .heading h2 {
     text-transform: uppercase;
+    color: #000;
+    font-size: 5em;
+    width: 50rem;
+    font-family: 'Josefin Sans', sans-serif;
+}
 
+#offres .heading {
+    text-align: center;
+    padding: 4rem 10rem;
 }
 
 section .heading {
-    text-align: center;
-    padding-bottom: 40px;
-}
-
-section .heading {
-    text-align: center;
     padding: 65px 0 85px 0;
 }
 
-#offres .heading h2 {
-    color: #000;
-}
 
 .timeline {
     padding: 30px 10px;
@@ -184,7 +260,6 @@ section .heading {
     content: "";
     display: table;
 }
-
 
 
 .timeline > li:after {
@@ -265,11 +340,6 @@ section .heading {
     color: #fff;
 }
 
-.title {
-    color:#000;
-    font-size: 1.5em;
-    text-align: center;
-}
 
 
 
@@ -277,30 +347,10 @@ section .heading {
 
 
 
-/* STEPS 
-#Steps {
-   
-}
 
 
 
-#Steps ul li {
-    width: 300px;
-    float: left;
-    text-align: center;
-    margin: 30px;
-}
-*/
-
-#Steps ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 20rem);
-    justify-content: center;
-    gap: 20px;
-}
-
-
-
+/* STEPS */
 #steps-1 img {
     width: 15rem;
 }
@@ -313,6 +363,185 @@ section .heading {
     width: 15rem;
 }
 
+#Steps .wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper .sub-title h1 {
+    font-size: 4em;
+    font-weight: bold;
+    width: 55rem;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    text-align: end;
+    margin-top: 17rem;
+}
+
+
+
+
+
+
+/*view slider */
+#view {
+    padding: 65px 50px 85px 50px;
+}
+
+.view {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#view .big-word h1 {
+    font-weight: bold;
+    font-size: 4em;
+    width: 35rem;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+.swiper-slide:nth-child(1n) {
+    background-color: rgb(206, 17, 17);
+  }
+
+  .swiper-slide:nth-child(2n) {
+    background-color: rgb(0, 140, 255);
+  }
+
+  .swiper-slide:nth-child(3n) {
+    background-color: rgb(10, 184, 111);
+  }
+
+  .swiper-slide:nth-child(4n) {
+    background-color: rgb(211, 122, 7);
+  }
+
+  .swiper-slide:nth-child(5n) {
+    background-color: rgb(118, 163, 12);
+}
+
+.view-slider {
+    width: 240px;
+    height: 320px;
+}
+
+.view-slider .slide {
+    
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.view-slider .slide img {
+    width: 4rem;
+    position: relative;
+    margin-top: 1rem;
+    margin-left: 50%;
+}
+
+.view-slider .slide .text h5 {
+    position: relative;
+    padding: 5px;
+    width: 10rem;
+    margin-top: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+/*visa card part */
+#visa .image img {
+    width: 57rem;
+}
+
+#visa .image {
+    padding: 3rem 8rem;
+    cursor: pointer;
+}
+
+#visa .image h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3rem;
+}
+
+#visa .image .ombre {
+    position: absolute;
+    background-color: hsl(216, 82%, 30%);
+    width: 57rem;
+    height: 85%;
+    display: none;
+    margin-top: -36.9rem;
+}
+
+#visa  .image:hover .ombre {
+    display: block;
+    background-color: hsl(215, 61%, 6%);
+    opacity: 0.5;
+}
+
+#visa  .image:hover .content {
+    display: block;
+    z-index: 222;
+    transition: 0.5s;
+}
+
+#visa .content {
+    position: absolute;
+    margin-top: -66rem;
+    padding: 2rem;
+    width: 25%;
+    background: rgba(3, 0, 4, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none;
+    transform: translateY(-10px);
+    transition: 0.5s;
+}
+
+#visa .content .heading {
+    margin-top: -5rem;
+}
+
+#visa .content .heading h2 {
+    text-transform: uppercase;
+}
+
+#visa .content .info {
+    margin-top: -4rem;
+}
+
+#visa .content .info p {
+    text-align: justify;
+}
+
+#visa .content .info a {
+    list-style: none;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -320,21 +549,33 @@ section .heading {
 /* ACTUALITES */
 #actualites {
     background-color: #fdca00;
-    
     padding: 65px 0 85px 0;
+    margin-top: 7rem;
+}
+
+
+#actualites .heading {
+    text-align: center;
+    
 }
 
 #actualites .heading h2 {
+    text-transform: uppercase;
     color: #000;
-    text-align: center;
+    font-size: 5em;
+    width: 50rem;
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: end;
 }
 
 #actualites img {
     width: 100%;
     height: 100%;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
 }
 
-#portfolio img:hover {
+#actualites img:hover {
     filter: none;
     -webkit-filter: none;
 }
@@ -344,7 +585,113 @@ section .heading {
 }
 
 
-/* AVIS */
+#actualites .col-md-4 .button-2 {
+    position: absolute;
+    margin-top: -5rem;
+    margin-left: 6rem;
+    background-color: rgba(239, 243, 244, 0.959);
+    font-size: 15px;
+    padding: 20px;
+    display: none;
+    text-align: center;
+    border-radius: 3px;
+}
+
+#actualites .col-md-4 .button-2 a {
+    text-decoration: none;
+    font-size: 16px;
+}
+
+
+#actualites .col-md-4 .button-2:hover {
+    background-color: rgba(250, 148, 6, 0.959);
+    cursor: pointer;
+}
+
+
+
+#actualites .col-md-4:hover .button-2 {
+    display: block;
+}
+
+#money-form {
+    background: #fff;
+    width: 27rem;
+    height: 30rem;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 2rem 3rem rgb(30, 243, 6);
+}
+
+.box .text p {
+    font-size: 18px;
+    width: 18rem;
+}
+
+.box .text h1 {
+    font-size: 2.5rem;
+    font-family: 'Merriweather', serif;
+    color: black;
+}
+
+.box  {
+    display: flex;
+    align-items: center;
+    padding-top: 5rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.box .text {
+     flex: 1 1 20rem;
+}
+
+.box #mone-form {
+    flex: 1 1 20rem;
+}
+
+#money-form .inputs input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 0.5px solid #555;
+}
+
+#money-form .inputs .comments span {
+    margin-left: 3rem;
+    font-size: 12px;
+    color: #555;
+}
+
+#money-form .inputs .comments {
+    margin-top: 1rem;
+}
+
+#money-form .inputs .button1 {
+    margin-top: 1.5rem;
+    border: 1px solid #ddd;
+    background: #08eb48;
+    color: aliceblue;
+    width: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 18px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in 0s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* AVIS 
 #avis {
     padding: 65px 0 85px 0;
 }
@@ -359,10 +706,10 @@ section .heading {
 #myCarousel .carousel-item h3 {
     color: #d82c2e;
     font-style: italic;
-}
+}*/
 
 
-/* ARGUMENT */
+/* ARGUMENT 
 .argument h2 {
     text-align: center;
     font-size: 20px;
@@ -402,19 +749,107 @@ section .heading {
     color: #fff;
 }
 
-/* ARGUMENT */
-#argument {
-    background-color: #000;
-    padding: 65px 0 85px 0;
+
+
+
+
+
+
+
+
+
+
+
+/* FRONTIERES */
+#zonnne {
+    background-color: #f8f2dcfb;
+    padding: 65px 0 85px 60px;
 }
 
+#zonnne .text h1 {
+    text-transform: uppercase;
+    font-size: 5rem;
+    font-family: 'Josefin Sans', sans-serif;
+}
 
-.button {
-    position: fixed;
-    bottom: 40px;
-    right: 20px;
-    display: none;
-    justify-content: center;
+#zonnne .bann p {
+    margin-left: 8rem;
+    padding-top: 3rem;
+    font-size: 3.5rem;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#zonnne .boxes {
+    display: flex;
     align-items: center;
-    z-index: 1000;
+    padding-top: 5rem;
+    flex-wrap: wrap;
 }
+
+#zonnne .boxes .image {
+    flex: 1 1 20rem;
+}
+
+#zonnne .box .content {
+   flex: 1 1 20rem;
+}
+
+#zonnne .boxes .content h1 {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+#zonnne .boxes .content p {
+    width: 30rem;
+    padding-top: 1.5rem;
+}
+
+
+#zonnne .list-country {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem,1fr));
+    gap: 2rem;
+    padding-top: 3rem;
+}
+
+
+#zonnne .list-country .image img {
+    width: 5rem;
+}
+
+#zonnne .list-country .image h3 {
+    font-size: 15px;
+}
+
+#zonnne .footer {
+    padding-top: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#zonnne .footer-col {
+    width: 25%;
+    
+}
+
+#zonnne .footer-col  h4 {
+    font-size: 1rem;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+#zonnne .footer .credit {
+    border-top: .1rem solid rgba(0, 0, 0,.1);
+    font-size: 1rem;
+    color: var(--black);
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    margin: 0 auto;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+
+
+
+
+
+
