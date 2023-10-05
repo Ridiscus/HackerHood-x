@@ -1,5 +1,5 @@
 var swiper = new Swiper(".banner-slider", {
-    spaceBetween: 500,
+    spaceBetween: 100,
     centeredSlides: true,
     autoplay: {
       delay: 7500,
@@ -19,3 +19,9 @@ function cheickHeight() {
     goTopBtn.style.display = "none"
   }
 }
+
+
+var swiper = new Swiper(".view-slider", {
+  effect: "cards",
+  grabCursor: true,
+});
