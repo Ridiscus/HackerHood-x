@@ -25,6 +25,7 @@
 
     <div class="button">
         <a href="login.php">Connectez-vous</a>
+        <a href="register.php">Ouvrir un compte</a>
     </div>
 
 
@@ -47,7 +48,7 @@
                             Transformez votre téléphone en un portefeuille numérique avec MTN BËTA, pour des paiements sans tracas.
                         </p>
                     </div>
-                    <a href="#"><button type="button" class="btn btn-outline-warning">Se connecter</button></a>
+                    <a href="login.php"><button type="button" class="btn btn-outline-warning">Se connecter</button></a>
                     <img src="images/handsome-man-spending-time-outdoors-using-modern-smartphone.jpg" alt="Entrepreneur">
                 </div>
     
@@ -60,6 +61,7 @@
                             MTN BËTA, votre solution pour des paiements et des transferts internationaux en toute sécurité.
                         </p>
                     </div>
+                    <a href="register.php"><button type="button" class="btn btn-outline-warning bout">Ouvrir un compte</button></a>
                     <img src="images/medium-shot-girl-being-shocked-while-looking-her-phone.jpg" alt="">
                 </div>
 
@@ -351,7 +353,7 @@
                 <div class="col-md-4">
                     <img src="https://www.mtn.com/wp-content/uploads/2023/06/Christian-Web-banner-936x500-1-1-2-1-1.jpg"  class="img-thumbnail" alt="">
                     <div class="button-2">
-                        <a href="#" class="">Voir info</a>
+                        <a href="https://www.mtn.com/mtn-announces-appointment-of-executive-operations-markets/" class="">Voir info</a>
                     </div>
                 </div>
             </div>
@@ -365,19 +367,30 @@
                     <div class="container">
                         <div class="row">
                             <div class="inputs">
-                                <label for="amount">vous envoyez exactement</label><br>
-                                <input type="text" name="amount">
+                                <label for="amount">Montant à envoyer</label><br>
+                                <input type="text" name="amountToSend" id="amountToSend">
+                                <select id="senderCountry">
+                                    <option value="USD">Dollar americain (USD)</option>
+                                    <option value="AUD">Dollar australienAUD</option>
+                                    <!-- Ajoutez d'autres options pour les pays émetteurs -->
+                                </select>
                                 <p class="comments">- 500 XOF <span>Frais de transaction</span></p>
-                                <p class="comments">= 4500 XOF <span>Montant total que nous convertirons</span></p>
-                                <p class="comments">* 0.019875 <span>Taux garanti</span></p>
-                                <label for="amount">le bénéficiaire réçoit</label><br>
-                                <input type="text">
-                                <p class="comments">Vous pouvez economiser jusqu'a 19000 CFA</p>
+                                <p class="comments">= <span id="convertedAmount">Montant converti</span></p>
+                                <p class="comments">* <span id="exchangeRate">Taux garanti</span></p>
+                                <label for="beneficiaryAmount">Montant à recevoir</label><br>
+                                <input type="text" name="amountToReceive" id="amountToReceive">
+                                <select id="receiverCountry">
+                                    <option value="CAD">Dollar canadien (CAD)</option>
+                                    <option value="PLN">Ztoty polonais (PLN)</option>
+                                    <!-- Ajoutez d'autres options pour les pays destinataires -->
+                                </select>
+                                <p class="comments"><span>Somme économisée CFA</span></p>
                                 <input type="submit" class="button1" value="Commencer">
                             </div>
                         </div>
                     </div>
                 </form>
+                
             </div>
         </div>
     </section>
