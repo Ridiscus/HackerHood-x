@@ -99,11 +99,12 @@ header.sticky .nav-link {
 .button {
     position: fixed;
     bottom: 40px;
-    margin-left: 45%;
+    margin-left: 40%;
     display: none;
     z-index: 1000;
-    background: #e1decd;
-    width: 14rem;
+    background: rgba(216, 228, 247, 0.39);
+    backdrop-filter: blur(20px);
+    width: 22.6rem;
     padding: 1rem;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -118,13 +119,17 @@ header.sticky .nav-link {
 .button a {
     text-decoration: none;
     list-style: none;
-    font-size: 20px;
+    font-size: 17px;
     color: #000;
     font-family: 'Montserrat Alternates', sans-serif;
+    margin: 5px;
+    background: #fff;
+    padding: 4px;
 }
 
 .button a:hover {
     color: #000;
+    background: #ffffffa2;
 }
 
 
@@ -169,7 +174,7 @@ header.sticky .nav-link {
     z-index: 1000;
  }
 
- .banner-slider .slide  .btn-info {
+ .banner-slider .slide  .bout {
     margin-top: 30rem;
     margin-left: 45rem;
     position: absolute;
