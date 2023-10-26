@@ -1,3 +1,69 @@
+<?php
+session_start();
+require 'database.php';
+
+$firstname = $password = "";
+$firstnameError  = $passwordError = "";
+$isSuccess = false;  // Initialisez $isSuccess à false par défaut
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $firstname = verifyInput($_POST["firstname"]);
+    $password = verifyInput($_POST["password"]);
+    
+    
+    if (empty($firstname)) {
+        $firstnameError = "Entrez votre prénom svp... !";
+        $isSuccess = false;
+    }
+    
+
+    if (!isPassword($password)) {
+        $passwordError = "Le mot de passe doit contenir exactement 5 chiffres.";
+        $isSuccess = false;
+    }
+
+    if ($isSuccess) {
+        $db = Database::connect();
+
+        // Vérifiez si l'utilisateur existe dans la base de données
+        $recupUser = $db->prepare('SELECT * FROM user WHERE firstname = ? AND password = ?');
+        $recupUser->execute(array($firstname, $password));
+
+        if ($recupUser->rowCount() > 0) {
+            $user = $recupUser->fetch();
+            $_SESSION['firstname'] = $user['firstname'];
+            $_SESSION['password'] = $password;
+            $_SESSION['id'] = $user['id'];
+            header("Location: beta.php");
+        } else {
+            echo "Votre Mot de passe, prenom ou Numéro de téléphone est incorrect.";
+        }
+        
+        Database::disconnect();
+    }
+}
+
+function verifyInput($var)
+{
+    $var = trim($var);
+    $var = stripslashes($var);
+    $var = htmlspecialchars($var);
+    return $var;
+}
+
+
+function isPassword($var)
+{
+    return preg_match("/^\d{5}$/", $var);
+}
+?>
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,14 +87,6 @@
             margin: 70px 0px;
         }
 
-        .heading {
-            text-align: center;
-        }
-
-        .heading h2 {
-            font-size: 14px;
-            font-weight: bold;
-        }
 
         #login-form {
             background: #fff;
@@ -36,7 +94,7 @@
             padding: 40px;
             width: 25rem;
             border-radius: 10px;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: bold;
         }
 
@@ -44,7 +102,7 @@
             font-style: italic;
             font-size: 13px;
             color: #d82c2e;
-            height: 25px;
+            
         }
 
         .blue {
@@ -53,7 +111,11 @@
 
         .form-control {
             height: 50px;
-            font-size: 18px;
+            font-size: 14px;
+        }
+
+        .inputt {
+            display: flex;
         }
 
         #login-form input[type=submit] {
@@ -85,6 +147,11 @@
             font-size: 14px;
         }
 
+        .logo img {
+            width: 4rem;
+            margin-left: 41%;
+        }
+
 
         
 
@@ -94,31 +161,33 @@
 
     <div class="container">
         <div class="row">
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" id="login-form" method="post" role="form">
-                <div class="heading"><h2>Connectez-vous a votre espace privé</h2></div>
+            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" id="login-form" method="post" role="form">
+                <div class="logo"><img src="https://www.mtn.com/wp-content/themes/mtn-refresh/public/img/mtn-logo.svg" alt=""></div>
                 <div class="col-md-12">
-                    <label for="name">Nom</label>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Identifiant MoMo" value="">
-                    <p class="comments">message d'erreurs</p>
+                    <label for="firstname">Prenom</label>
+                    <input type="tel" name="firstname" id="firstname"  class="form-control" placeholder="Entrez votre prenom" value="<?php echo $firstname; ?>">
+                    <p class="comments"><?php echo $firstnameError ?></p>
                 </div>
-                <div class="col-md-12">
+                <!--<div class="col-md-12">
                     <label for="phone">Telephone<span class="blue"> * </span></label>
-                    <input type="tel" name="phone" id="phone" class="form-control" placeholder="Votre Numero MoMo" value="">
-                    <p class="comments">message d'erreurs</p>
-                </div>
+                    <input type="tel" name="phone" id="phone"  class="form-control" placeholder="Votre Numero MoMo" value="<?php echo $phone; ?>">
+                    <p class="comments"><?php echo $phoneError ?></p>
+                </div>-->
                 <div class="col-md-12">
-                    <label for="message">Message<span class="blue"> * </span></label>
-                    <textarea id="message" name="message" class="form-control" placeholder="Votre message" rows="4"></textarea>
-                    <p class="comments">message d'erreurs</p>
+                    <label for="password">Mot de passe<span class="blue"> * </span></label>
+                    <input type="password" name="password" autocomplete="off" id="password"  class="form-control" placeholder="Votre Mot de passe" value="<?php echo $password; ?>">
+                    <p class="comments"><?php echo $passwordError ?></p>
                 </div>
                 <div class="col-md-12">
                     <p class="blue">* <strong>ces informations sont réquises</strong></p>
                 </div>
                 <div class="col-md-12">
+                    <p class="">si vous n'avez pas de compte <a href="register.php">inscrivez-vous</a></p>
+                </div>
+                <div class="col-md-12">
                     <input type="submit" class="button1" value="Se connecter">
                 </div>
 
-                <div class="thank-you">Merci ! Vous recevrez une notification</div>
             </form>
         </div>
     </div>
